@@ -1,13 +1,10 @@
-DROP TABLE IF EXISTS Klienti;
-
-CREATE TABLE billionaires (
-  id INT AUTO_INCREMENT  PRIMARY KEY,
-  vards VARCHAR(250) NOT NULL,
-  uzvards VARCHAR(250) NOT NULL,
-  vecums VARCHAR(250) DEFAULT NULL
+CREATE TABLE students (
+  id INT AUTO_INCREMENT NOT NULL,
+  epasts VARCHAR(45) NOT NULL,
+  parole VARCHAR(15) NOT NULL,
+  vards VARCHAR(15) NOT NULL,
+  uzvards VARCHAR(45) NOT NULL,
+  CONSTRAINT pk_students PRIMARY KEY (id)
 );
 
-INSERT INTO billionaires (vards, uzvards, vecums) VALUES
-  ('Janis','Berzs', 11),
-  ('Gatis', 'Kandis',  33),
-  ('Dana', 'Kalnina', 42);
+ALTER TABLE students ADD CONSTRAINT uc_students_epasts UNIQUE (epasts);
