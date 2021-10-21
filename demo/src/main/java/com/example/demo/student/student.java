@@ -1,115 +1,68 @@
 package com.example.demo.student;
 
+import org.springframework.stereotype.Component;
+
+import javax.persistence.*;
 import java.time.LocalDate;
 
+@Component
+@Entity
+@Table(name = "students")
 public class student {
-	private Long id;
-	private String name;
-	private String email;
-	private LocalDate dob;
-	private Integer age;
-	
-	
-	
-	public student() {
-		super();
-	}
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+
+	@Column(nullable = false, unique = true, length = 45)
+	private String epasts;
+
+	@Column(length = 15, nullable = false)
+	private String parole;
+
+	@Column(length = 15, nullable = false, name = "vards")
+	private String vards;
+
+	@Column(length = 45, nullable = false, name = "Uzvards")
+	private String Uzvards;
 
 
-
-	public student(Long id, 
-			String name, 
-			String email, 
-			LocalDate dob, 
-			Integer age) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.email = email;
-		this.dob = dob;
-		this.age = age;
-	}
-
-
-
-	public student(String name, 
-			String email, 
-			LocalDate dob, 
-			Integer age) {
-		super();
-		this.name = name;
-		this.email = email;
-		this.dob = dob;
-		this.age = age;
-	}
-
-
-
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-
-
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-
-
-	public String getName() {
-		return name;
+	public String getEpasts() {
+		return epasts;
 	}
 
-
-
-	public void setName(String name) {
-		this.name = name;
+	public void setEpasts(String epasts) {
+		this.epasts = epasts;
 	}
 
-
-
-	public String getEmail() {
-		return email;
+	public String getParole() {
+		return parole;
 	}
 
-
-
-	public void setEmail(String email) {
-		this.email = email;
+	public void setParole(String parole) {
+		this.parole = parole;
 	}
 
-
-
-	public LocalDate getDob() {
-		return dob;
+	public String getVards() {
+		return vards;
 	}
 
-
-
-	public void setDob(LocalDate dob) {
-		this.dob = dob;
+	public void setVards(String vards) {
+		this.vards = vards;
 	}
 
-
-
-	public Integer getAge() {
-		return age;
+	public String getUzvards() {
+		return Uzvards;
 	}
 
-
-
-	public void setAge(Integer age) {
-		this.age = age;
+	public void setUzvards(String uzvards) {
+		Uzvards = uzvards;
 	}
-
-
-
-	@Override
-	public String toString() {
-		return "student [id=" + id + ", name=" + name + ", email=" + email + ", dob=" + dob + ", age=" + age + "]";
-	}
-	
-	
-	
 }
